@@ -21,9 +21,9 @@ const client = new tmi.client(options);
 
 client.connect();
 
-// client.on('connected', (address, port) => {
-//     client.action('canejo', 'Olá, CanejoBOT está observando!');
-// });
+client.on('connected', (address, port) => {
+    client.action(CHANNEL_NAME, 'Olá, CanejoBOT está observando!');
+});
 
 client.on('chat', (channel, userstate, message, self) => {
     if (self) return;
